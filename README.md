@@ -121,6 +121,13 @@ Most of your changes will probably be in the FEF UI:
   3. Then, click the **User Interfaces** tab and click **Browse**, select the .zip, and click the *green checkmark*.
   4. Finally, click the **Publish** button and your UI changes will apply.
 
+You may also want to edit the object designs as well:
+
+* The object can be edited from the **Platform Console**.
+* Changes to the scripts can be uploaded into the design directly.
+  * Check the design events to make sure you don't need to change the events when you update the scripts.
+    The current configuration might cause new code to run unexpectedly, such as *on save* code running *on create*.
+
 
 
 ## Mobile App
@@ -235,18 +242,20 @@ Once the app is open, simply log in to your trade account.
 If you want to make changes to the app:
 
 * The main files you'll need to edit are in the `app/` directory.
-* The `componenets/` folder only has an attachment component for viewing and editing image attachments.
-* The `pages/` folder in the app is divided into 4 folders:
-  * `app/pages/display/` has the detailed issue viewer and the message list.
-  * `app/pages/index/` has the issue list and the filter system.
-  * `app/pages/login/` only has the login page.
-  * `app/pages/update/` has the issue creator and editor, and the message creator.
-* I created some services to simplify the pages themselves.
-  * `app/data.service.ts` gets a list of organizations, users, and object types when a user logs in.
-  * `app/image.service.ts` handles the downloading and uploading of images to the system.
-  * `app/query.service.ts` simplifies API calls and stores token/authorization data.
-  * `app/select.service.ts` has methods for easily creating selectors for organizations, users, and other items.
+  * The `componenets/` folder only has an attachment component for viewing and editing image attachments.
+  * The `pages/` folder in the app is divided into 4 folders:
+    * `pages/display/` has the detailed issue viewer and the message list.
+    * `pages/index/` has the issue list and the filter system.
+    * `pages/login/` only has the login page.
+    * `pages/update/` has the issue creator and editor, and the message creator.
+* I created some services in the `app/` folder to simplify the pages themselves.
+  * `data.service.ts` gets a list of organizations, users, and object types when a user logs in.
+  * `image.service.ts` handles the downloading and uploading of images to the system.
+  * `query.service.ts` simplifies API calls and stores token/authorization data.
+  * `select.service.ts` has methods for easily creating selectors for organizations, users, and other items.
 * This app was made with the Ionic 2 beta with Angular 2 and Typescript.
+* Other things you might want to change:
+  * I think the `resources/` folder is where the app icon and splash screen go.
 
 
 
