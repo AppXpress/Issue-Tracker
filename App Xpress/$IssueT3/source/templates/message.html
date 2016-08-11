@@ -1,0 +1,25 @@
+<core-section kind="hideNew" label-key="$MessageT4/Message.navigation">
+	<core-list name="messageList" label="Oldest to newest">
+		<div class="message-item">
+			<core-form cols="1">
+				<core-field kind="messageText" field="text" edit-mode="false"></core-field>
+			</core-form>
+
+			<core-attachments kind="messageAttachments" edit-mode="false"></core-attachments>
+		</div>
+	</core-list>
+
+	<core-popover name="messagePopover" label="Create message" edit-mode>
+		<core-form data="newMessage" cols="1">
+			<core-field name="newText" field="text" label="New message" rows="3"></core-field>
+		</core-form>
+
+		<core-attachments name="newAttachments"></core-attachments>
+	</core-popover>
+
+	<div class="message-buttons">
+		<core-button name="createButton" label="Create message"></core-button>
+		<core-button name="createAndAttachButton" label="Create message with attachments"></core-button>
+		<core-button name="reloadButton" label="Reload messages"></core-button>
+	</div>
+</core-section>

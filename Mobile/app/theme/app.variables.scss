@@ -1,0 +1,131 @@
+// http://ionicframework.com/docs/v2/theming/
+
+// Ionic Shared Functions
+// --------------------------------------------------
+// Makes Ionic Sass functions available to your App
+
+@import "globals.core";
+
+// App Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files. Setting
+// variables before Ionic's Sass will use these variables rather than
+// Ionic's default Sass variable values. App Shared Sass imports belong
+// in the app.core.scss file and not this file. Sass variables specific
+// to the mode belong in either the app.ios.scss or app.md.scss files.
+
+
+// App Shared Color Variables
+// --------------------------------------------------
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+// Both iOS and MD colors can be further customized if colors
+// are different per mode.
+
+// Original colors:
+// primary:    #387ef5,
+// secondary:  #32db64,
+// danger:     #f53d3d,
+// light:      #f4f4f4,
+// dark:       #222,
+// favorite:   #69BB7B,
+
+$colors: (
+  primary: #5C5C5C,
+  
+  ruby-1:  #F4BCBC,
+  ruby-2:  #EB9D9D,
+  ruby-3:  #DE8181,
+  ruby-4:  #D26D6D,
+  ruby-5:  #C65F5F,
+  ruby-6:  #B94E4E,
+  ruby-7:  #AD4242,
+  ruby-8:  #A13030,
+  ruby-9:  #941E1E,
+  ruby-10: #880E0E,
+
+  amber-1:  #FBE9BF,
+  amber-2:  #F8E09C,
+  amber-3:  #F6D67B,
+  amber-4:  #F4C951,
+  amber-5:  #F2BC41,
+  amber-6:  #EFA836,
+  amber-7:  #EE9A36,
+  amber-8:  #E4882B,
+  amber-9:  #DB7726,
+  amber-10: #D66221,
+
+  emerald-1:  #D5F6C0,
+  emerald-2:  #C3E8AC,
+  emerald-3:  #AFDC91,
+  emerald-4:  #9CCE7C,
+  emerald-5:  #89BF65,
+  emerald-6:  #76B051,
+  emerald-7:  #66A140,
+  emerald-8:  #56932A,
+  emerald-9:  #488421,
+  emerald-10: #397514,
+
+  azure-1:  #CBEBF4,
+  azure-2:  #ADD8EB,
+  azure-3:  #8DC9E6,
+  azure-4:  #69B5DD,
+  azure-5:  #54A1D3,
+  azure-6:  #368AC0,
+  azure-7:  #2578A9,
+  azure-8:  #1D5F8A,
+  azure-9:  #134D71,
+  azure-10: #133C59,
+
+  turquoise-1:  #C0EDE3,
+  turquoise-2:  #A9E1D6,
+  turquoise-3:  #8ED1C6,
+  turquoise-4:  #7CC0B5,
+  turquoise-5:  #69ADA3,
+  turquoise-6:  #579E95,
+  turquoise-7:  #448D83,
+  turquoise-8:  #317C73,
+  turquoise-9:  #206B62,
+  turquoise-10: #0E5B52,
+
+  amethyst-1:  #EDE3FC,
+  amethyst-2:  #DACCEC,
+  amethyst-3:  #C7B4DB,
+  amethyst-4:  #B59ECA,
+  amethyst-5:  #A38DB7,
+  amethyst-6:  #9279A6,
+  amethyst-7:  #806594,
+  amethyst-8:  #6E5282,
+  amethyst-9:  #5D3E70,
+  amethyst-10: #4B2A5E,
+
+  slate-1:  #DEE1E8,
+  slate-2:  #C8CBD4,
+  slate-3:  #ABAEB7,
+  slate-4:  #888B94,
+  slate-5:  #656871,
+  slate-6:  #50535A,
+  slate-7:  #414247,
+  slate-8:  #313236,
+  slate-9:  #212224,
+  slate-10: #1C1819,
+
+  graphite-1:  #F0F0F0,
+  graphite-2:  #D8D8D8,
+  graphite-3:  #BDBDBD,
+  graphite-4:  #999999,
+  graphite-5:  #737373,
+  graphite-6:  #5C5C5C,
+  graphite-7:  #454545,
+  graphite-8:  #383838,
+  graphite-9:  #292929,
+  graphite-10: #1A1A1A,
+
+  alert-1: #E84F4F,
+  alert-2: #FF9426,
+  alert-3: #FFD726,
+  alert-4: #80CE4D,
+);

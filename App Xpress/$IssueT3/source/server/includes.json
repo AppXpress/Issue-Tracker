@@ -1,0 +1,11 @@
+{
+	"platformVersion": "0.9.9",
+	"behaviors": [
+		"anchor.js",
+		"messages.js",
+		"issue.js"
+	],
+	"includes": [
+		"css/issue.css"
+	]
+}

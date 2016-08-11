@@ -1,0 +1,41 @@
+<ion-header>
+	<ion-navbar turquoise-6>
+		<ion-title>Messages</ion-title>
+
+		<ion-buttons end>
+			<button (click)="reload()">
+				<ion-icon name="refresh"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-card *ngFor="let message of issue.messages">
+		<ion-item text-wrap>
+			<p>{{message.createdBy}} on {{message.createdOn}}</p>
+			<h2>{{message.text || "No text"}}</h2>
+		</ion-item>
+
+		<attachments-list [data]="message.attachments"></attachments-list>
+	</ion-card>
+
+	<ion-card *ngIf="!issue.messages">
+		<ion-item>
+			<ion-spinner item-left></ion-spinner>
+			<h2>Loading...</h2>
+		</ion-item>
+	</ion-card>
+
+	<ion-card *ngIf="issue.messages && issue.messages.length == 0">
+		<ion-card-header>No messages found.</ion-card-header>
+	</ion-card>
+
+	<button fab fab-right fab-bottom fab-fixed *ngIf="issue.status != 'closed'" (click)="add()" turquoise-6>
+		<ion-icon name="add"></ion-icon>
+	</button>
+
+	<ion-infinite-scroll (ionInfinite)="load($event)" *ngIf="issue.hasMore">
+		<ion-infinite-scroll-content loadingText="Loading..."></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+</ion-content>

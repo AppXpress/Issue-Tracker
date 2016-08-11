@@ -1,0 +1,75 @@
+<ion-header>
+	<ion-navbar amethyst-6>
+		<ion-title>Set Filter</ion-title>
+
+		<ion-buttons end>
+			<button (click)="save()">
+				<ion-icon name="checkmark"></ion-icon>
+			</button>
+			<button (click)="reset()">
+				<ion-icon name="undo"></ion-icon>
+			</button>
+			<button (click)="cancel()">
+				<ion-icon name="close"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-card>
+		<ion-item>
+			<ion-label stacked>Subject</ion-label>
+			<ion-input [(ngModel)]="filter.data.subject" placeholder="Enter a search term"></ion-input>
+		</ion-item>
+
+		<ion-item>
+			<ion-label stacked>Description</ion-label>
+			<ion-input [(ngModel)]="filter.data.description" placeholder="Enter a search term"></ion-input>
+		</ion-item>
+
+		<ion-item>
+			<ion-label stacked>Status</ion-label>
+			<ion-select [(ngModel)]="filter.data.status">
+				<ion-option value="">Any</ion-option>
+				<ion-option value="opened">Opened</ion-option>
+				<ion-option value="assigned">Assigned</ion-option>
+				<ion-option value="resolved">Resolved</ion-option>
+				<ion-option value="closed">Closed</ion-option>
+			</ion-select>
+		</ion-item>
+
+		<ion-item>
+			<ion-label stacked>Severity</ion-label>
+			<ion-select [(ngModel)]="filter.data.severity">
+				<ion-option value="">Any</ion-option>
+				<ion-option value="0">None</ion-option>
+				<ion-option value="1">Low</ion-option>
+				<ion-option value="2">Medium</ion-option>
+				<ion-option value="3">High</ion-option>
+			</ion-select>
+		</ion-item>
+	</ion-card>
+
+	<ion-card>
+		<ion-item>
+			<ion-label stacked>Sort by</ion-label>
+			<ion-select [(ngModel)]="filter.data.sort">
+				<ion-option value="modifyTimestamp">Date Modified</ion-option>
+				<ion-option value="createTimestamp">Date Created</ion-option>
+				<ion-option value="subject">Subject</ion-option>
+				<ion-option value="description">Description</ion-option>
+				<ion-option value="status">Status</ion-option>
+				<ion-option value="severity">Severity</ion-option>
+			</ion-select>
+		</ion-item>
+
+		<ion-item>
+			<ion-label stacked>Direction</ion-label>
+			<ion-select [(ngModel)]="filter.data.order">
+				<ion-option value="">Ascending</ion-option>
+				<ion-option value="true">Descending</ion-option>
+			</ion-select>
+		</ion-item>
+	</ion-card>
+</ion-content>

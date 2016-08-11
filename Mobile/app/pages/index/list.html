@@ -1,0 +1,56 @@
+<ion-header>
+	<ion-navbar azure-6>
+		<ion-buttons start>
+			<button (click)="logout()">
+				Log out
+			</button>
+		</ion-buttons>
+
+		<ion-title>Issue List</ion-title>
+
+		<ion-buttons end>
+			<button (click)="changeFilter()">
+				<ion-icon name="funnel"></ion-icon>
+			</button>
+			<button (click)="reload()">
+				<ion-icon name="refresh"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-card *ngIf="list">
+		<ion-list>
+			<button *ngFor="let issue of list" (click)="viewIssue(issue)" ion-item>
+				<h2>{{issue.subject || "No subject"}}</h2>
+				<p>{{issue.description || "No description"}}</p>
+				<ion-note item-right>{{issue.status[0].toUpperCase()}}{{issue.status.slice(1)}}</ion-note>
+
+				<ion-badge *ngIf="issue.severity == 3" item-right alert-1>High</ion-badge>
+				<ion-badge *ngIf="issue.severity == 2" item-right alert-2>Medium</ion-badge>
+				<ion-badge *ngIf="issue.severity == 1" item-right alert-3>Low</ion-badge>
+				<ion-badge *ngIf="!issue.severity" item-right alert-4>None</ion-badge>
+			</button>
+		</ion-list>
+	</ion-card>
+
+	<ion-card *ngIf="!list">
+		<ion-item>
+			<ion-spinner item-left></ion-spinner>
+			<h2>Loading...</h2>
+		</ion-item>
+	</ion-card>
+
+	<ion-card *ngIf="list && list.length == 0">
+		<ion-card-header>No issues found.</ion-card-header>
+	</ion-card>
+
+	<button fab fab-right fab-bottom fab-fixed (click)="add()" azure-6>
+		<ion-icon name="add"></ion-icon>
+	</button>
+
+	<ion-infinite-scroll (ionInfinite)="load($event)" *ngIf="hasMore">
+		<ion-infinite-scroll-content loadingText="Loading..."></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+</ion-content>

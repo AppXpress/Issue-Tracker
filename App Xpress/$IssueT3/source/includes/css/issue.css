@@ -1,0 +1,67 @@
+body.fef-ready.pagecolor, .gtui1 h1 {
+	background-color: #F0F0F0 !important;
+}
+
+.gtui1 .navwidth {
+	margin-left: 20px !important;
+	margin-right: 20px !important;
+}
+
+.gtui1 h2:not(.table-header):not([data-reactid *= modal-header]) {
+	padding: 16px !important;
+	font-size: 16px !important;
+	border-bottom: solid 1px #BDBDBD;
+}
+
+.gtui1 section {
+	margin-bottom: 20px;
+	border-radius: 2px;
+	border: solid 1px #BDBDBD !important;
+	background-color: #FFFFFF !important;
+}
+
+.gtui1 section:after {
+	content: none;
+}
+
+.gtui1 .flexform .form-item {
+	padding: 15px !important;
+}
+
+.gtui1 .flexform .form-item label {
+	padding-top: 0 !important;
+}
+
+.gtui1 .listHeaderMessage {
+	display: none !important;
+}
+
+.message-item {
+	border-bottom: solid 1px #BDBDBD;
+}
+
+.message-item > * {
+	width: 50% !important;
+	vertical-align: top !important;
+	display: inline-block !important;
+}
+
+.message-item [data-reactid *= lastModified],
+.message-item [data-reactid *= createUser] {
+	display: none;
+}
+
+.message-buttons {
+	padding: 10px;
+}
+
+@media (min-width: 1280px) {
+	[data-reactid = '.9.0.4'], [data-reactid = '.9.0.5'] {
+		width: calc(50% - 10px);
+		display: inline-block;
+	}
+
+	[data-reactid = '.9.0.4'] {
+		margin-right: 20px;
+	}
+}

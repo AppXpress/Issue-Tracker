@@ -1,0 +1,65 @@
+<core-docbar></core-docbar>
+
+<!-- Ownership -->
+
+<!-- Always hidden because it's opened using an action button -->
+<div style="display: none;">
+	<core-lookup name="ownerLookup"></core-lookup>
+</div>
+
+<!-- Issue -->
+
+<core-section label-key="$IssueT3/header.details">
+	<core-form cols="2">
+		<core-field field="status"></core-field>
+		<core-field field="owner"></core-field>
+	</core-form>
+
+	<core-form cols="2">
+		<core-field field="subject"></core-field>
+		<core-field field="severity"></core-field>
+	</core-form>
+
+	<core-form cols="2">
+		<core-field field="description" rows="5"></core-field>
+		<core-field field="assignedTo" name="assignedTo"></core-field>
+	</core-form>
+
+	<core-form cols="4">
+		<core-field field="createdOn"></core-field>
+		<core-field field="createdBy"></core-field>
+		<core-field field="modifiedOn"></core-field>
+		<core-field field="modifiedBy"></core-field>
+	</core-form>
+</core-section>
+
+<!-- Attachments -->
+
+<core-section label-key="$IssueT3/header.attachments" kind="hideNew">
+	<core-attachments name="issueAttachments"></core-attachments>
+</core-section>
+
+<!-- Anchors -->
+
+<core-section label-key="$GenericAnchorT1/GenericAnchor.navigation">
+	<core-table field="anchors" name="anchorTable" inline-edit="false">
+		<core-field name="anchorName" field="objectName">
+			<core-link kind="anchorLink"></core-link>
+		</core-field>
+		<core-field name="anchorType" field="objectType">
+			<core-text kind="anchorText"></core-text>
+		</core-field>
+	</core-table>
+</core-section>
+
+<!-- Participants -->
+
+<core-section label-key="$ParticipantT3/Participant.navigation">
+	<core-table field="participants" name="participantTable" inline-edit="true">
+		<core-field field="party"></core-field>
+	</core-table>
+</core-section>
+
+<!-- Messages -->
+
+<core-include name="messageInclude"></core-include>

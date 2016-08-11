@@ -1,0 +1,18 @@
+{
+	"pages": {
+		"issue": {
+			"start": true,
+			"template": "issue.html",
+			"titleKey": "$IssueT3",
+			"primaryData": {
+				"type": "$IssueT3"
+			}
+		},
+		"anchor": {
+			"template": "anchor.html"
+		},
+		"messages": {
+			"template": "message.html"
+		}
+	}
+}

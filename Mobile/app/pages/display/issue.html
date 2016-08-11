@@ -1,0 +1,135 @@
+<ion-header>
+	<ion-navbar emerald-6>
+		<ion-title>Details</ion-title>
+
+		<ion-buttons end>
+			<button (click)="reload()">
+				<ion-icon name="refresh"></ion-icon>
+			</button>
+			<button (click)="actions($event)">
+				<ion-icon name="more"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<template [ngIf]="!loading">
+
+		<!--
+			Messages
+		-->
+
+		<ion-card>
+			<button ion-item (click)="messages()">
+				<ion-icon name="chatbubbles" item-left></ion-icon>
+				<h2>Messages</h2>
+				<p>Tap to view</p>
+			</button>
+		</ion-card>
+
+		<!--
+			Issue
+		-->
+
+		<ion-card>
+			<ion-item text-wrap>
+				<h2>Subject</h2>
+				<p>{{issue.subject || "No subject"}}</p>
+			</ion-item>
+
+			<ion-item text-wrap>
+				<h2>Description</h2>
+				<p>{{issue.description || "No description"}}</p>
+			</ion-item>
+
+			<ion-item text-wrap>
+				<h2>Status</h2>
+				<p>{{issue.status[0].toUpperCase()}}{{issue.status.slice(1)}}</p>
+			</ion-item>
+
+			<ion-item text-wrap>
+				<h2>Severity</h2>
+				<p *ngIf="issue.severity == 3">High</p>
+				<p *ngIf="issue.severity == 2">Medium</p>
+				<p *ngIf="issue.severity == 1">Low</p>
+				<p *ngIf="!issue.severity">Not set</p>
+			</ion-item>
+
+			<ion-item text-wrap>
+				<h2>Timestamps</h2>
+				<p>Created on {{issue.createdOn}} by {{issue.createdBy}}</p>
+				<p>Modified on {{issue.modifiedOn}} by {{issue.modifiedBy}}</p>
+			</ion-item>
+
+			<ion-item text-wrap>
+				<h2>Assignment</h2>
+				<p *ngIf="issue.assignedTo">{{issue.assignedTo.name}}</p>
+				<p *ngIf="!issue.assignedTo">No assignment</p>
+				<p>{{issue.owner || "No owner"}}</p>
+			</ion-item>
+		</ion-card>
+
+		<!--
+			Attachments
+		-->
+
+		<ion-card>
+			<ion-card-header>
+				Attachments
+			</ion-card-header>
+
+			<attachments-list [data]="issue.attachments"></attachments-list>
+		</ion-card>
+
+		<!--
+			Anchors
+		-->
+
+		<ion-card>
+			<ion-card-header>
+				Transactions
+			</ion-card-header>
+
+			<ion-list>
+				<ion-item text-wrap *ngFor="let anchor of issue.anchors">
+					<h2>{{anchor.objectName || "No name"}}</h2>
+					<p>{{anchor.objectType}}</p>
+				</ion-item>
+				<ion-item *ngIf="!issue.anchors">
+					No transactions
+				</ion-item>
+			</ion-list>
+		</ion-card>
+
+		<!--
+			Participants
+		-->
+
+		<ion-card>
+			<ion-card-header>
+				Participants
+			</ion-card-header>
+
+			<ion-list>
+				<ion-item text-wrap *ngFor="let participant of issue.participants">
+					{{participant.party.name || "No name"}}
+				</ion-item>
+				<ion-item *ngIf="!issue.participants">
+					No participants
+				</ion-item>
+			</ion-list>
+		</ion-card>
+
+		<button fab fab-right fab-bottom fab-fixed *ngIf="editable" (click)="edit()" emerald-6>
+			<ion-icon name="create"></ion-icon>
+		</button>
+	</template>
+
+	<ion-card *ngIf="loading">
+		<ion-item>
+			<ion-spinner item-left></ion-spinner>
+			<h2>Loading...</h2>
+		</ion-item>
+	</ion-card>
+</ion-content>

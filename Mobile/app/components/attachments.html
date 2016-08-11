@@ -1,0 +1,50 @@
+<ion-list>
+	<template ngFor let-attachment="$implicit" [ngForOf]="data">
+		<template [ngIf]="!edit">
+			<button *ngIf="attachment.isImage" ion-item (click)="view(attachment)">
+				<ion-img item-left *ngIf="attachment.url" [src]="attachment.url"></ion-img>
+				<ion-spinner item-left *ngIf="attachment.isImage && !attachment.url"></ion-spinner>
+
+				<h2>{{attachment.name || "No name"}}</h2>
+				<p>{{attachment.description || "No description"}}</p>
+			</button>
+
+			<ion-item *ngIf="!attachment.isImage" text-wrap>
+				<h2>{{attachment.name || "No name"}}</h2>
+				<p>{{attachment.description || "No description"}}</p>
+
+				<ion-note>This attachment can only be viewed in a browser.</ion-note>
+			</ion-item>
+		</template>
+
+		<template [ngIf]="edit">
+			<ion-item>
+				<ion-img item-left [src]="attachment.url" (click)="view(attachment)"></ion-img>
+				<ion-input [(ngModel)]="attachment.name" placeholder="Enter a file name" maxlength="50"></ion-input>
+
+				<ion-buttons item-right>
+					<button clear round (click)="remove(attachment)">
+						<ion-icon name="close"></ion-icon>
+					</button>
+				</ion-buttons>
+			</ion-item>
+		</template>
+	</template>
+
+	<ion-item *ngIf="!data">
+		<ion-spinner item-left></ion-spinner>
+		<p>Loading attachments...</p>
+	</ion-item>
+
+	<template [ngIf]="edit">
+		<button ion-item (click)="add(true)">
+			<ion-icon item-left name="camera"></ion-icon>
+			<h2>Tap to take a new a photo</h2>
+		</button>
+
+		<button ion-item (click)="add()">
+			<ion-icon item-left name="image"></ion-icon>
+			<h2>Tap to add an existing photo</h2>
+		</button>
+	</template>
+</ion-list>

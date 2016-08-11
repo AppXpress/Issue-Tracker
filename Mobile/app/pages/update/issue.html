@@ -1,0 +1,121 @@
+<ion-header>
+	<ion-navbar ruby-6>
+		<ion-title *ngIf="isNew">New Issue</ion-title>
+		<ion-title *ngIf="!isNew">Edit Issue</ion-title>
+
+		<ion-buttons end>
+			<button (click)="save()">
+				<ion-icon name="checkmark"></ion-icon>
+			</button>
+			<button (click)="cancel()">
+				<ion-icon name="close"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<div *ngIf="issue">
+		<ion-card>
+			<ion-item>
+				<ion-label stacked>Subject</ion-label>
+				<ion-input [(ngModel)]="issue.subject" placeholder="Enter a subject" maxlength="200"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label stacked>Description</ion-label>
+				<ion-textarea [(ngModel)]="issue.description" placeholder="Enter a description" maxlength="1000" rows="5"></ion-textarea>
+			</ion-item>
+
+			<ion-item>
+				<ion-label stacked>Severity</ion-label>
+				<ion-select [(ngModel)]="issue.severity">
+					<ion-option value="" checked="true">None</ion-option>
+					<ion-option value="1">Low</ion-option>
+					<ion-option value="2">Medium</ion-option>
+					<ion-option value="3">High</ion-option>
+				</ion-select>
+			</ion-item>
+
+			<button ion-item (click)="setAssignedTo($event)">
+				<p>Assigned To</p>
+				<h2 *ngIf="issue.assignedTo">{{issue.assignedTo.name || "No name"}}</h2>
+				<h2 *ngIf="!issue.assignedTo">Tap to assign</h2>
+				<ion-buttons item-right>
+					<button clear round (click)="clearAssignedTo($event)">
+						<ion-icon name="close"></ion-icon>
+					</button>
+			</ion-buttons>
+			</button>
+		</ion-card>
+
+		<!--
+			Attachments
+		-->
+
+		<ion-card>
+			<ion-card-header>
+				Attachments
+			</ion-card-header>
+
+			<attachments-list [data]="attachments" [edit]="true"></attachments-list>
+		</ion-card>
+
+		<!--
+			Anchors
+		-->
+
+		<ion-card>
+			<ion-card-header>
+				Transactions
+			</ion-card-header>
+
+			<ion-list>
+				<ion-item *ngFor="let anchor of issue.anchors">
+					<h2>{{anchor.objectName || "No name"}}</h2>
+					<p *ngIf="data[anchor.objectType]">{{data[anchor.objectType].name}}</p>
+					<p>{{anchor.objectType}}</p>
+					<ion-buttons item-right>
+						<button clear round (click)="remove('anchors', anchor)">
+							<ion-icon name="close"></ion-icon>
+						</button>
+					</ion-buttons>
+				</ion-item>
+				<button ion-item (click)="addAnchor($event)">
+					Add transaction
+				</button>
+			</ion-list>
+		</ion-card>
+
+		<!--
+			Participants
+		-->
+
+		<ion-card>
+			<ion-card-header>
+				Participants
+			</ion-card-header>
+
+			<ion-list>
+				<ion-item *ngFor="let participant of issue.participants">
+					<h2>{{participant.party.name || "No name"}}</h2>
+					<ion-buttons item-right>
+						<button clear round (click)="remove('participants', participant)">
+							<ion-icon name="close"></ion-icon>
+						</button>
+					</ion-buttons>
+				</ion-item>
+				<button ion-item (click)="addParticipant($event)">
+					Add participant
+				</button>
+			</ion-list>
+		</ion-card>
+	</div>
+
+	<ion-card *ngIf="!issue">
+		<ion-item>
+			<ion-spinner item-left></ion-spinner>
+			<h2>Loading...</h2>
+		</ion-item>
+	</ion-card>
+</ion-content>
