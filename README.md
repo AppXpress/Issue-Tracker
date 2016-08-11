@@ -5,6 +5,7 @@ Made using the [GT Nexus](http://www.gtnexus.com/) (owned by [Infor](http://www.
 Before you can use this project, you must have a GT Nexus account or request one from the [developer website][1].
 
 This repository contains 2 projects related to the Issue Tracker app:
+
 * In the `App Xpress` folder you'll find the scripts used in the Issue Tracker platform module and the files for the FEF UI.
 * In the `Mobile` folder you'll find the files for an Ionic/Apache Cordova cross-platform mobile app that uses the module.
 
@@ -28,6 +29,7 @@ This repository contains 2 projects related to the Issue Tracker app:
 ### Files
 
 The "App Xpress" folder contains:
+
 * `$IssueT3/`, containing the files for the FEF UI.
 * `issueScript.js` and `messageScript.js`, the module scripts.
 * `severityList.csv`, the file used for the severity picklist.
@@ -36,12 +38,14 @@ The "App Xpress" folder contains:
 ### Preparation
 
 In order to install the FEF UI for this app:
+
 1. Log in to a trade account and go to **Tools** > **Platform Console** in the header bar.
 2. At the top of the page, go to the **Modules** > **Manage Modules** > **Tools** > **Import**.
 3. Choose the platform module .zip file in the **App Xpress** directory and import it.
 5. Click **Publish** to finish adding the module.
 
 After installation, you must Provision the app:
+
 1. In the module, go to **Provisioning** > **Manage Provisioning** > **Add**.
 2. Select the following values for each field:
 
@@ -56,6 +60,7 @@ After installation, you must Provision the app:
 3. Click **Save**, then click **Submit**.
 
 After provisioning, you must grant user permissions for the app:
+
 1. Log in to an administrator account and search for your organization.
 2. Go to **Users** in your organization and find your trade user.
 3. Click **Security Profile** and then click **Edit** at the bottom.
@@ -66,6 +71,7 @@ After provisioning, you must grant user permissions for the app:
 ### Usage
 
 This app runs on the GT Nexus trade website. While logged in as a trade user, you can:
+
 1. Create a new issue by going to **Create** > **Issues** in the header bar.
 2. View and edit existing issues by going to **Applications** > **Issues** (under **Documents**).
 
@@ -102,6 +108,7 @@ In order to use the mobile app, you must have set up the App Xpress module using
 ### Files
 
 The **Mobile** folder is an Ionic app directory, containing:
+
 * `app/`, which stores the actual templates and scripts for the app
 * `config.xml`, which has a widget ID that needs to be edited when building for iOS.
 * `ionic.config.json`, which has an app ID that needs to be cleared when using Ionic Package.
@@ -111,11 +118,13 @@ The **Mobile** folder is an Ionic app directory, containing:
 ### Preparation
 
 You need to install Ionic and Cordova prior to using this app:
+
 1. Download and install [Node.js](https://nodejs.org/en/).
 2. Open a terminal and run `npm install -g ionic@beta` and `npm install -g cordova`.
    * You might need to run these undo `sudo` on Mac and Linux.
 
 Edit the code to include your data key:
+
 1. Go to `app/query.service.ts` and scroll down to line 104.
 2. Change the `dataKey` string have an authorized data key. To get a data key,
    1. Log in to GT Nexus with an admin acocunt.
@@ -128,6 +137,7 @@ Edit the code to include your data key:
       * Example: `https://commerce-demo.gtnexus.com/en/trade/login.jsp` -> `https://commerce-demo.gtnexus.com/rest/310`
 
 Now you can use the app:
+
 1. Open a terminal in the directory where you've saved the app.
 2. Run `ionic serve` to start previewing the app in the browser.
    * Note: Chrome and other browsers may have security restrictions that prevent API calls from running.
