@@ -13,7 +13,7 @@ This repository contains 2 projects related to the Issue Tracker app.
 * [App Xpress](#app-xpress)
   * [Files](#files)
   * [Installation](#installation)
-* [Mobile](#mobile)
+* [Mobile App](#mobile-app)
   * [Files](#files-1)
   * [Running](#running)
 
