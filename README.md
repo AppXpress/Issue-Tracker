@@ -9,10 +9,13 @@ This repository contains 2 projects related to the Issue Tracker app.
 * In the `App Xpress` folder you'll find the scripts used in the Issue Tracker platform module and the files for the FEF UI.
 * In the `Mobile` folder you'll find the files for an Ionic/Apache Cordova cross-platform mobile app that uses the module.
 
-|Quick links                |
-|---------------------------|
-|[App Xpress](./#app-xpress)|
-|[Mobile](./#mobile)        |
+## Quick links
+* [App Xpress](#app-xpress)
+  * [Files](#files)
+  * [Installation](#installation)
+* [Mobile](#mobile)
+  * [Files](#files-1)
+  * [Running](#running)
 
 
 ## App Xpress
